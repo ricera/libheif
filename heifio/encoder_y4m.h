@@ -34,6 +34,7 @@ class Y4MEncoder : public Encoder
 {
 public:
   Y4MEncoder();
+  Y4MEncoder(bool no_header);
 
   heif_colorspace colorspace(bool has_alpha) const override
   {
@@ -54,6 +55,7 @@ public:
               const struct heif_image* image, const std::string& filename) override;
 
 private:
+  bool no_header = false;
 };
 
 #endif  // EXAMPLE_ENCODER_Y4M_H

@@ -715,8 +715,9 @@ int main(int argc, char** argv)
 #endif  // HAVE_LIBTIFF
     }
 
-    if (suffix_lowercase == "y4m") {
-      encoder.reset(new Y4MEncoder());
+    if (suffix_lowercase == "y4m" || suffix_lowercase == "yuv") {
+      bool no_header = (suffix_lowercase == "yuv");
+      encoder.reset(new Y4MEncoder(no_header));
     }
   }
   else {
